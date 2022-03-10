@@ -1,0 +1,469 @@
+@import "media-queries";
+
+$primary: #00adb5;
+$danger: #192535;
+$secondary: #f9f9f9;
+$warning: #192535;
+$orange: #fd7e14;
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Roboto', sans-serif !important;
+}
+
+/* Utility */
+a {
+   text-decoration: none !important;
+}
+
+%sidebarSharedStyled {
+   font-size: 1rem;
+   color: rgba(0,0,0,.6);
+}
+
+%borderRight {
+   border-right: 15px solid $danger;
+}
+
+/* Home */
+#home {
+   height: 55vh;
+   background-image: linear-gradient(to right bottom, 
+   rgba(0,173,181,.7), 
+   rgba(25,37,53,.8)),
+	   url('../img/hero1.jpg');
+   background-repeat: no-repeat;   
+   background-size: cover;   
+   background-clip: center;
+
+   /* Top Section */
+   .top-section {
+      border-bottom: 1px solid $primary;
+
+      .search-bar {
+         display: inline-block !important;
+         border: 1px solid $primary;
+
+         .control-form {
+            background: transparent;
+            margin-right: .5rem !important;
+
+            &:focus{
+               outline: none !important;
+           }
+
+           @include screen {
+            font-size: .9rem !important;
+         }
+         }
+
+         i {
+            @include screen {
+               font-size: .8rem !important;
+            }
+         }
+      }
+   }
+
+   /* Nav Section */
+   nav {
+      height: 200px !important;
+
+      li {
+         height: 130px;
+         width: 130px;
+         border: 2px solid $secondary;
+         margin: 0 1rem;
+         padding: 1rem;
+         border-radius: 50%;
+         transition: all .3s ease;
+
+         &:hover {
+            background: $secondary;
+            transition: all .3s ease;
+
+            @include smallScreen {
+               background: none;
+            }
+         }
+
+         &:hover a{
+            color: #333 !important;
+            transition: all .3s ease;
+
+            
+         }
+
+         @include tablet {
+            height: 100px;
+            width: 100px;
+         }
+
+         @include screen {
+            height: 77px;
+            width: 77px;
+         }
+
+         @include smallScreen {
+            border: none;
+            margin: 0 .1rem;
+         }
+
+         a {
+            @include tablet {
+               font-size: .8rem !important;
+            }
+
+            
+         }
+      }
+
+      ul {
+         @include verySmallScreen {
+            flex-direction: column;
+         }
+      }
+   }
+
+   /* Bottom Section */
+   .bottom-section {
+      i {
+         font-size: 1.2rem !important;
+         transition: all .3s ease;
+
+         &:hover {
+            transform: scale(1.2);
+         }
+
+         @include screen {
+            font-size: 1.1rem !important;
+         }
+      }
+
+      @include verySmallScreen {
+         display: none !important;
+      }
+   }  
+
+   @include smallScreen {
+      align-items: center !important;
+   }
+}
+
+/* Welcome Section */
+#welcome {
+   border-right: 15px solid $danger;
+   border-left: 15px solid $danger;
+   box-shadow: 0 4px 4px rgba(0,0,0, .2);
+
+   @include verySmallScreen {
+      font-size: .8rem !important;
+   }
+}
+
+/* Main Section */
+#main {
+   
+   article {
+
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 6px 7px rgba(0,0,0, .2);
+      transition: all .3s ease;
+
+      &:hover {
+         box-shadow: 0 6px 7px rgba(0,0,0, .4);
+      }
+
+      .left {
+
+         .card-img-overlay {
+            background: rgba(124,52,1,0);
+   
+            .card-text {
+               background: rgba(0,173,181,.4);
+               border-right: 15px solid #fff;
+               cursor: pointer;
+            }
+         }
+   
+         .content {
+            font-size: .8rem !important;
+         }
+      }
+
+      .right {
+
+         ul {
+
+            li {
+
+               font-size: 1.1rem !important;
+               transition: all .3s ease;
+
+               &:hover {
+                  transform: scale(1.1);
+               }
+
+               @include tablet {
+                  font-size: 1rem !important;
+               }
+
+               a {
+                  @include verySmallScreen {
+                     font-size: .8rem !important;
+                  }
+               }
+            }
+
+            @include tablet{
+               flex-direction: row !important;
+               margin-top: 15px !important;
+            }
+         }
+      }
+
+      @include tablet{
+         flex-direction: column;
+      }
+   }
+
+   .sidebar {
+
+      .email {
+
+         box-shadow: 0 6px 7px rgba(0,0,0, .2);
+
+         .card-header {
+            font-size: 1.2rem !important;
+            @extend %borderRight;
+
+            @include tablet {
+               font-size: 1rem !important;
+            }
+         }
+   
+         .card-body {
+            p {
+               @extend %sidebarSharedStyled;
+               
+               @include tablet {
+                  font-size: .9rem !important;
+               }
+            }
+
+            form {
+               input {
+                  @include tablet {
+                     font-size: .9rem !important;
+                  }
+               }
+
+               a {
+                  @include tablet {
+                     font-size: .9rem !important;
+                  }
+               }
+            }
+         }
+      }
+
+      .about {
+
+         box-shadow: 0 6px 7px rgba(0,0,0, .2);
+
+         .card-header {
+            font-size: 1.2rem !important;
+            @extend %borderRight;
+            @include tablet {
+               font-size: 1rem !important;
+            }
+         }
+
+         .card-body {
+            p {
+               @extend %sidebarSharedStyled;
+               @include tablet {
+                  font-size: .9rem !important;
+               }
+
+               text-align: justify;
+            }
+         }
+      }
+
+      .common-articles {
+
+         box-shadow: 0 6px 7px rgba(0,0,0, .2);
+
+         .card-header {
+            font-size: 1.2rem !important;
+            @extend %borderRight;
+            @include tablet {
+               font-size: 1rem !important;
+            }
+         }
+
+         .img-content-title {
+            font-size: 1.1rem !important;
+         }
+
+         .img-content-body {
+            font-size: .95rem;
+            color: rgba(0,0,0,.6);
+         }
+      }
+
+      .categories {
+
+         box-shadow: 0 6px 7px rgba(0,0,0, .2);
+
+         .card-header {
+            font-size: 1.2rem !important;
+            @extend %borderRight;
+            @include tablet {
+               font-size: 1rem !important;
+            }
+         }
+
+         .card-body {
+            li {
+               a {
+                  transition: all .3s ease;
+                  &:hover {
+                     background: $danger !important;
+                  }
+                  @include tablet {
+                     font-size: .9rem !important;
+                  }
+               }
+            }
+         }
+      }
+
+   }
+}
+
+/* Who am I Section */
+#who-am-i {
+
+   img {
+      border-radius: 50%;
+      border: 3px solid $secondary;
+      box-shadow: 0 4px 4px rgba(0,0,0, .3);
+   }
+
+   h4 {
+      position: relative;
+      box-shadow: 0 4px 4px rgba(0,0,0, .1);
+
+      @include smallScreen {
+         font-size: 1rem !important;
+      }
+
+      &::after {
+         content: "";
+         position: absolute;
+         left: -5px;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         width: 0; 
+         height: 0; 
+         border-top: 10px solid transparent;
+         border-bottom: 10px solid transparent; 
+         border-right:10px solid #fff; 
+      }
+   }
+
+   p {
+      @include smallScreen {
+         font-size: .9rem !important;
+      }
+
+      @include verySmallScreen {
+         font-size: .8rem !important;
+      }
+
+      text-align: justify;
+   }
+}
+
+/* Footer */
+#footer {
+   #contact {
+      .col-12 {
+         a {
+            &:hover {
+               transition: all .3s ease;
+               text-decoration: underline !important;
+            }
+
+            @include smallScreen {
+               font-size: .9rem !important;
+            }
+
+            @include verySmallScreen {
+               font-size: .7rem !important;
+            }
+         }
+      }
+   }
+
+   #copyright {
+      .col {
+         @include smallScreen {
+            font-size: .9rem !important;
+         }
+
+         @include verySmallScreen {
+            font-size: .8rem !important;
+         }
+      }
+   }
+}
+
+/**** Articles PAGE *****/
+.article-text {
+   font-size: 1.1rem !important;
+   color: #333 !important;
+
+   p {
+      text-align: justify;
+      line-height: 1.8;
+   }
+}
+
+.share-2 {
+   a {
+      @include screenX {
+         display: block !important;
+         width: 100% !important;
+      }
+   }
+}
+
+.comment-section {
+   
+   .comment-method {
+      .cmnt-1 {
+         background: $orange !important;
+         border-color: $orange !important;
+      }
+
+      @include screenX {
+         flex-direction: column;
+      }
+   }
+   
+   #form {
+      a {
+         width: 100% !important;
+      }
+   }
+}
